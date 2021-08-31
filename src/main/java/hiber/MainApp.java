@@ -30,6 +30,11 @@ public class MainApp {
          System.out.println("Car = "+ user.getCar());
          System.out.println();
       }
+      System.out.println(userService.getUserByCar("BMW", 3));
+      System.out.println(userService.getUserByCar("Audi", 5));
+      System.out.println(userService.getUserByCar("Mersedes", 600));
+      System.out.println(userService.getUserByCar("Mazda", 6));
+
       context.close();
    }
 }

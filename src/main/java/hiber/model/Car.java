@@ -12,11 +12,11 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "series")
-    private int series;
-
     @Column(name = "model")
     private String model;
+
+    @Column(name = "series")
+    private int series;
 
     @OneToOne(mappedBy = "car")
     private User user;
@@ -34,12 +34,20 @@ public class Car {
         this.user = user;
     }*/
 
-    public Long getId() {
+   /* public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+*/
+   public String getModel() {
+       return model;
+   }
+
+    public void setModel(String model) {
+        this.model = model;
     }
 
     public int getSeries() {
@@ -49,29 +57,13 @@ public class Car {
     public void setSeries(int series) {
         this.series = series;
     }
-    public String getModel() {
-        return model;
-    }
 
-    public void setModel(String model) {
-        this.model = model;
-    }
     public User getUser() {
         return user;
     }
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    @Override
-    public String toString() {
-        return "Car " +
-                "(model = " +
-                model +
-                ", series = " +
-                series +
-               ")";
     }
 
     @Override
@@ -87,7 +79,15 @@ public class Car {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, series, model, user);
+        return Objects.hash(id, model, series, user);
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "model='" + model + '\'' +
+                ", series=" + series +
+                '}';
     }
 }
 
